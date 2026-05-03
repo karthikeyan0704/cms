@@ -4,7 +4,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const connectDB = require('./config/db');
+const connectDB = require('../config/db');
 
 // Load env vars
 dotenv.config();
@@ -22,10 +22,10 @@ app.use(express.json({ limit: '50mb' }));
 app.use(cors());
 
 // Define Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/users', require('./routes/userRoutes'));
-app.use('/api/complaints', require('./routes/complaintRoutes'));
-app.use('/api/stats', require('./routes/statsRoutes'));
+app.use('/api/auth', require('../routes/authRoutes'));
+app.use('/api/users', require('../routes/userRoutes'));
+app.use('/api/complaints', require('../routes/complaintRoutes'));
+app.use('/api/stats', require('../routes/statsRoutes'));
 
 // Root route for health check
 app.get('/', (req, res) => {

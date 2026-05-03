@@ -27,6 +27,15 @@ app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/complaints', require('./routes/complaintRoutes'));
 app.use('/api/stats', require('./routes/statsRoutes'));
 
+// Root route for health check
+app.get('/', (req, res) => {
+  res.json({ 
+    message: "CMS Backend API is running successfully!",
+    status: "Healthy",
+    version: "1.0.0"
+  });
+});
+
 const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV !== 'production') {
